@@ -2,10 +2,10 @@ const KEY = "96b947a45d33d7dc1c49af3203966408"; // Your OpenWeatherMap API key
 
 // Request to get data
 const getData = async (city) => {
-  const base = "http://api.openweathermap.org/data/2.5/weather";
+  const base = "https://api.openweathermap.org/data/2.5/weather";
   const query = `?q=${city}&appid=${KEY}&units=metric`;
 
-  const req = await fetch(base + query);  
+  const req = await fetch(base + query);
   const data = await req.json();
   return data;
 };
@@ -16,7 +16,6 @@ const updateUI = (data) => {
   const details = document.getElementById("details");
   const weatherIcon = document.getElementById("weather-icon");
   const overlay = document.getElementById("overlay");
-  
 
   // Set data to elements
   document.getElementById("city-name").textContent = data.name;
@@ -55,6 +54,4 @@ const audio = new Audio("/audio/audio_light-off.mp3"); // Replace with your soun
 document.getElementById("change-location").addEventListener("submit", (e) => {
   e.preventDefault();
   audio.play();
-  
 });
-
